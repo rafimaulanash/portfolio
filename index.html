@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rafi Maulana Ash Shidqi - Portfolio</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+        opacity: 0;
+        transition: opacity 1s ease-in;
+      }
+
+      body.loaded {
+        opacity: 1;
+      }
+
+      header {
+        background-color: #4a90e2;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        animation: slideDown 1s ease-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      header a {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      header a:hover {
+        color: #ffdb4d;
+      }
+
+      main {
+        max-width: 800px;
+        margin: auto;
+        padding: 2rem;
+      }
+
+      h2 {
+        color: #4a90e2;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: #4a90e2;
+        margin-top: 5px;
+        animation: growBar 1s ease forwards;
+      }
+
+      @keyframes growBar {
+        from {
+          width: 0;
+        }
+        to {
+          width: 50px;
+        }
+      }
+
+      section {
+        margin-bottom: 2rem;
+        animation: fadeIn 1s ease forwards;
+        opacity: 0;
+      }
+
+      section.visible {
+        opacity: 1;
+      }
+
+      a {
+        color: #4a90e2;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background: #eee;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Rafi Maulana Ash Shidqi</h1>
+      <p>Logistics Professional | IT Student</p>
+      <p>
+        📍 Bekasi, Indonesia | 📧
+        <a href="mailto:rafi.maulanash@gmail.com">rafi.maulanash@gmail.com</a> |
+        🔗
+        <a href="https://www.linkedin.com/in/mlnarafi/" target="_blank"
+          >https://www.linkedin.com/in/mlnarafi</a
+        >
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Professional Summary</h2>
+        <p>
+          Imagine having a logistics expert on your team—one who not only
+          ensures every shipment is on time but also optimizes every inch of
+          storage and workflow. With over 5 years of hands-on experience, I
+          don’t just manage logistics—I transform it into a seamless,
+          stress-free operation. If you're looking for someone who thrives under
+          pressure, thinks critically, and drives results with precision, you're
+          about to meet the right person.
+        </p>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+        <h3>Logistic Staff – PT Cikos Indonesia</h3>
+        <p><em>January 2018 – Present</em></p>
+        <ul>
+          <li>Managed the distribution process for over 100 outlets weekly</li>
+          <li>Prepared daily and monthly stock reports using Excel and SAP</li>
+          <li>Successfully reduced stock loss rate by 20% within 6 months</li>
+          <li>
+            Performed physical checks and data entry for incoming/outgoing goods
+          </li>
+          <li>Maintained warehouse cleanliness and security</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <p><strong>Bachelor of Information Technology</strong></p>
+        <p>Universitas Bina Sarana Informatika (2023 – 2027)</p>
+        <ul>
+          <li>Python</li>
+          <li>HTML</li>
+          <li>UI/UX</li>
+          <li>Flutter</li>
+          <li>Laravel</li>
+          <li>Routing & Switching Essentials</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <li>SAP (Logistics Module)</li>
+          <li>Microsoft Excel (PivotTable, VLOOKUP)</li>
+          <li>Warehouse Management</li>
+          <li>Shipping and Distribution</li>
+          <li>Team Communication</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <ul>
+          <li>Cara Pembuatan Kosmetik yang Baik (2021)</li>
+          <img
+            src="CPKB.jpg"
+            alt="CPKB"
+            style="
+              max-width: 100%;
+              height: auto;
+              border: 1px solid #ccc;
+              margin-bottom: 1rem;
+            "
+          />
+          <li>Mahir Membuat Database Aplikasi Professional (2023)</li>
+          <img
+            src="certDB.png"
+            alt="MDB"
+            style="max-width: 100%; height: auto; border: 1px solid #ccc"
+          />
+          <li>PCAP - Programming Essentials in Python (2024)</li>
+          <img
+            src="PCAP.png"
+            alt="PCAP"
+            style="
+              max-width: 100%;
+              height: auto;
+              border: 1px solid #ccc;
+              margin-bottom: 1rem;
+            "
+          />
+          <li>Warehouse Management (2025)</li>
+          <img
+            src="WMS.jpg"
+            alt="wms"
+            style="
+              max-width: 100%;
+              height: auto;
+              border: 1px solid #ccc;
+              margin-bottom: 1rem;
+            "
+          />
+        </ul>
+      </section>
+    </main>
+
+    <footer>&copy; 2025 Rafi Maulana Ash Shidqi. All rights reserved.</footer>
+
+    <script>
+      // Fade in body
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+
+      // Fade-in sections on scroll
+      const sections = document.querySelectorAll("section");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
