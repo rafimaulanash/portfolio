@@ -1,14 +1,43 @@
 document.addEventListener("DOMContentLoaded", function () {
   document.body.classList.add("loaded");
+  startTypewriter(); // Mulai efek ketik saat halaman siap
 });
 
-// Mobile menu toggle
+// ========== Typewriter Effect ==========
+const words = ["Portfolio", "Rafi Maulana"];
+let i = 0;
+let j = 0;
+let isDeleting = false;
+const speed = 150;
+const delayAfterWord = 1500;
+const el = document.querySelector(".typewriter-text");
+
+function startTypewriter() {
+  if (!el) return; // Cegah error jika elemen tidak ditemukan
+  const currentWord = words[i];
+  if (isDeleting) {
+    el.textContent = currentWord.substring(0, j--);
+  } else {
+    el.textContent = currentWord.substring(0, j++);
+  }
+
+  if (!isDeleting && j === currentWord.length + 1) {
+    isDeleting = true;
+    setTimeout(startTypewriter, delayAfterWord);
+    return;
+  }
+
+  if (isDeleting && j === 0) {
+    isDeleting = false;
+    i = (i + 1) % words.length;
+  }
+
+  setTimeout(startTypewriter, isDeleting ? speed / 2 : speed);
+}
+
+// ========== Mobile menu toggle ==========
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
-const themeToggle = document.getElementById("theme-toggle");
-const prefersDark =
-  window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 hamburger.addEventListener("click", function () {
   navMenu.classList.toggle("active");
@@ -17,7 +46,7 @@ hamburger.addEventListener("click", function () {
     : '<i class="fas fa-bars"></i>';
 });
 
-// Close mobile menu when clicking a link
+// Close menu when link clicked
 document.querySelectorAll("#nav-menu a").forEach((link) => {
   link.addEventListener("click", () => {
     navMenu.classList.remove("active");
@@ -25,7 +54,7 @@ document.querySelectorAll("#nav-menu a").forEach((link) => {
   });
 });
 
-// Scroll animations
+// ========== Scroll animations ==========
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -34,29 +63,28 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  {
-    threshold: 0.1,
-  }
+  { threshold: 0.1 }
 );
 
 document.querySelectorAll(".animate-on-scroll").forEach((el) => {
   observer.observe(el);
 });
 
-// Smooth scrolling for anchor links
+// ========== Smooth scrolling ==========
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault();
     const target = document.querySelector(this.getAttribute("href"));
-
-    window.scrollTo({
-      top: target.offsetTop - 80,
-      behavior: "smooth",
-    });
+    if (target) {
+      e.preventDefault();
+      window.scrollTo({
+        top: target.offsetTop - 80,
+        behavior: "smooth",
+      });
+    }
   });
 });
 
-// Header scroll effect
+// ========== Header scroll effect ==========
 window.addEventListener("scroll", function () {
   const header = document.querySelector("header");
   if (window.scrollY > 100) {
@@ -68,6 +96,12 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// ========== Dark Mode Toggle ==========
+const themeToggle = document.getElementById("theme-toggle");
+const prefersDark =
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+
 const setTheme = (isDark) => {
   document.body.classList.toggle("dark", isDark);
   themeToggle.innerHTML = isDark
@@ -76,7 +110,6 @@ const setTheme = (isDark) => {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 };
 
-// Init on load
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   setTheme(savedTheme === "dark");

@@ -709,6 +709,26 @@ footer {
   transform: translateY(0);
 }
 
+.typewriter-text {
+  display: inline-block;
+  border-right: 2px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 10ch }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: #fff }
+}
+
+
 /* Responsive Design */
 @media (max-width: 992px) {
   .hero h1 {
